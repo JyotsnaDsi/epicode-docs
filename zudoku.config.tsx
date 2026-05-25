@@ -130,8 +130,8 @@ Sales
           collapsible: false,
           items: [
             "/sandbox/introduction",
-            "/sandbox/iravoicesandbox",
-            "/sandbox/sandboxbotcompose",
+            "/sandbox/iravoice",
+            "/sandbox/botcompose",
             "/sandbox/compliance",
             "/sandbox/customerinfo",
           ],
@@ -141,20 +141,25 @@ Sales
     {
       type: "link",
       to: "/api",
-      label: "API Reference",
+      label: "IraVoice API Reference",
+    },
+    {
+      type: "link",
+      to: "/botcomposeapi",
+      label: "BotCompose API Reference",
     },
   ],
-  redirects: [{ from: "/", to: "/introduction" }],
+  redirects: [{ from: "/", to: "/sandbox/introduction" }],
   apis: [
     {
       type: "file",
-      input: "./apis/iravoice.yaml",
+      input: "./apis/iravoice.json",
       path: "/api",
     },
     {
       type: "file",
       input: "./apis/botcompose.yaml",
-      path: "/iracpa",
+      path: "/botcomposeapi",
     },
   ],
 };

@@ -87,7 +87,7 @@ Sales
           collapsible: false,
           items: [
             "/sandbox/introduction",
-            "/sandbox/iravoiceiandbox",
+            "/sandbox/iravoicesandbox",
             "/sandbox/sandboxbotcompose",
             "/sandbox/compliance",
           ],

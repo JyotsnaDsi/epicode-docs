@@ -2,6 +2,14 @@ import type { ZudokuConfig } from "zudoku";
 
 const config: ZudokuConfig = {
   basePath: "/epicode-docs",
+  "metadata": {
+    "title": "Epicode Docs",
+    "description": "Dumentation for the Epicode Product Suite.",
+    "logo": "https://epicode.in/epicode/wp-content/uploads/2025/09/Epicode-SiteIcon.svg",
+    "favicon": "https://epicode.in/epicode/wp-content/uploads/2025/09/Epicode-SiteIcon.svg",
+    "applicationName": "Epicode Docs",
+    "keywords": ["example", "website", "metadata", "SEO"],
+  },
   theme: {
     "light": {
       "background": "oklch(100% 0 none)",

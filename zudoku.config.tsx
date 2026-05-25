@@ -49,8 +49,8 @@ const config: ZudokuConfig = {
       ],
       logo: {
         src: {
-          light: "/public/epicode-logo-web.png",
-          dark: "/public/epicode-logo-web.png"
+          light: "/epicode-logo-web.png",
+          dark: "/epicode-logo-web.png"
         },
         alt: "Company Logo",
         width: "120px" // optional width

@@ -59,7 +59,7 @@ const config: ZudokuConfig = {
   site: {
     title: "Epicode Docs",
     logo: {
-      src: { light: "/epicode-logo-web.png", dark: "/epicode-logo-web.png" },
+      src: { light: "/epicode-logo-web.png", dark: "/epicode-logo-white.svg" },
       alt: "Epicode Logo",
       width: "130px",
     },
@@ -101,7 +101,7 @@ const config: ZudokuConfig = {
       logo: {
         src: {
           light: "/epicode-docs/epicode-logo-web.png",
-          dark: "/epicode-docs/epicode-logo-web.png"
+          dark: "/epicode-docs/epicode-logo-white.svg"
         },
         alt: "Company Logo",
         width: "120px" // optional width
@@ -163,11 +163,17 @@ Sales
       type: "file",
       input: "./apis/iravoice.json",
       path: "/api",
+      options: {
+        expandAllTags: false,
+      }
     },
     {
       type: "file",
       input: "./apis/botcompose.yaml",
       path: "/botcomposeapi",
+      options: {
+        expandAllTags: false,
+      }
     },
   ],
 };

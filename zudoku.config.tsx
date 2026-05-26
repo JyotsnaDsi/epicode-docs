@@ -140,6 +140,7 @@ Sales
             "/sandbox/introduction",
             "/sandbox/iravoice",
             "/sandbox/botcompose",
+            "sandbox/botcomposescript",
             "/sandbox/compliance",
             "/sandbox/customerinfo",
           ],
@@ -169,7 +170,7 @@ Sales
     },
     {
       type: "file",
-      input: "./apis/botcompose.yaml",
+      input: "./apis/botcompose.json",
       path: "/botcomposeapi",
       options: {
         expandAllTags: false,

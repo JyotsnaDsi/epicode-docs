@@ -140,9 +140,37 @@ Sales
             "/sandbox/introduction",
             "/sandbox/iravoice",
             "/sandbox/botcompose",
-            "sandbox/botcomposescript",
             "/sandbox/compliance",
             "/sandbox/customerinfo",
+          ],
+        },
+        {
+          type: "category",
+          label: "IraVoice - Telephony Stack",
+          icon: "phone",
+          collapsible: false,
+          items: [
+            {
+              "type": "link",
+              "label": "IraVoice API",
+              "to": "/api"
+            },
+            "/iravoice/websocketmessage",
+            "/iravoice/webhookevent",
+          ],
+        },
+        {
+          type: "category",
+          label: "BotCompose - Voicebot Orchestration",
+          icon: "bot",
+          collapsible: false,
+          items: [
+            {
+              "type": "link",
+              "label": "BotCompose API",
+              "to": "/botcomposeapi"
+            },
+            "/botcompose/botcomposescript",
           ],
         },
       ],

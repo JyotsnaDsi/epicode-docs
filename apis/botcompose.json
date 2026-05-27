@@ -3,7 +3,7 @@
   "info": {
     "title": "BotCompose API",
     "version": "1.0.0",
-    "description": "\nBotCompose is a VoiceBot orchestration engine designed to integrate seamlessly with existing PBX, UC, and Contact Center platforms. It replaces rigid IVR flows with natural conversational AI while staying flexible, performant, and vendor-agnostic across STT, TTS, and LLM components.\n\n## Key Features\n\n### 🧠 Lower STT Costs With Smart VAD\nBotCompose uses Voice Activity Detection (VAD) to intelligently activate STT only when speech is detected, reducing cost and improving efficiency—particularly valuable for contact centers with high call volume.\n\n### 🗃️ Lower TTS Costs With Built-In Audio Caching (CDB)\nBotCompose includes a TTS Cache Database (CDB) to prevent unnecessary repeated synthesis:\n- Bot developers can list commonly used sentences to cache.\n- The LLM instructions should also be told to use cached sentences as much as possible.\n- The cached audio is returned instantly.\n\nThis reduces TTS costs, speeds up responses, and improves perceived voicebot responsiveness.\n\n### 🔌 Plugin-Based Integration & LLM Tool Orchestration (No SDKs Required)\nBotCompose ships with ready-to-use plugins for STT, LLM, and TTS, along with secure APIs to manage plugin secrets and configure voicebots as pipelines of modular components.\n\nDevelopers can expose custom tools directly to the LLM, and the built-in Tool Manager automatically forwards each tool call as an HTTP request to their server. This enables seamless backend integration, rapid customization, and full control without proprietary SDKs or tight coupling.\n\n:::info\nAll APIs require an Authorization Bearer token. The token to be used for your instance and tenant ID will be shared by Epicode Operations team.\n:::"
+    "description": "\nBotCompose is a VoiceBot orchestration engine designed to integrate seamlessly with existing PBX, UC, and Contact Center platforms. It replaces rigid IVR flows with natural conversational AI while staying flexible, performant, and vendor-agnostic across STT, TTS, and LLM components.\n\n## Key Features\n\n### 🧠 Lower STT Costs With Smart VAD\nBotCompose uses Voice Activity Detection (VAD) to intelligently activate STT only when speech is detected, reducing cost and improving efficiency—particularly valuable for contact centers with high call volume.\n\n### 🗃️ Lower TTS Costs With Built-In Audio Caching (CDB)\nBotCompose includes a TTS Cache Database (CDB) to prevent unnecessary repeated synthesis:\n- Bot developers can list commonly used sentences to cache.\n- The LLM instructions should also be told to use cached sentences as much as possible.\n- The cached audio is returned instantly.\n\nThis reduces TTS costs, speeds up responses, and improves perceived voicebot responsiveness.\n\n### 🔌 Plugin-Based Integration & LLM Tool Orchestration (No SDKs Required)\nBotCompose ships with ready-to-use plugins for STT, LLM, and TTS, along with secure APIs to manage plugin secrets and configure voicebots as pipelines of modular components.\n\nDevelopers can expose custom tools directly to the LLM, and the built-in Tool Manager automatically forwards each tool call as an HTTP request to their server. This enables seamless backend integration, rapid customization, and full control without proprietary SDKs or tight coupling.\n\n\nAll APIs require an Authorization Bearer token. The token to be used for your instance and tenant ID will be shared by Epicode Operations team.\n"
   },
   "servers": [
     {
@@ -64,7 +64,7 @@
     "/api/get_secrets?tenant_id={tenant_id}": {
       "get": {
         "tags": [
-          "Get Secret"
+          "Get Secrets"
         ],
         "summary": "Get Secrets",
         "description": "Retrieves all secret tokens for a tenant.",
@@ -777,7 +777,7 @@
       "description": "Operations related to adding a new secret token or service account JSON."
     },
     {
-      "name": "Get Secret",
+      "name": "Get Secrets",
       "description": "Operations related to retrieving all stored secrets for a tenant."
     },
     {

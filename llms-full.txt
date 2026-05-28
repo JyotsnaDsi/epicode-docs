@@ -11,7 +11,7 @@ URL: /epicode-docs/sandbox/iravoice
 
 
 
-# IraVoice Sandbox Environment
+# IraVoice Sandbox
 
 The Epicode Sandbox environment is provided to help customers safely test and validate their integration before moving to production.
  
@@ -31,11 +31,11 @@ To begin using the sandbox, you will be provided with the following details:
 These credentials should be used exclusively for testing purposes.
 
 
-:::info
-**BASE_URL**: https://sandboxld.epicode.in/api/
+:::note
+**Base URL**: https://sandboxld.epicode.in/api/
 :::
 
-:::info
+:::note
 **[Click here](/api) for IraVoice API documentation**
 :::
 
@@ -113,22 +113,66 @@ URL: /epicode-docs/sandbox/introduction
 
 # Introduction
 
-IraVoice is a bidirectional media server that brings together Dialer, Recorder, and BotStream modules to enable seamless telephony services for both legacy CX systems and modern conversational AI applications.
+
+## About Epicode
+
+Epicode provides enterprise-grade telephony infrastructure and middleware for scalable voice AI deployments. Built for modern communication workflows, the platform enables seamless integration across telephony networks, voice channels, and AI voicebot frameworks.
+
+Designed with an API-first architecture, Epicode supports high-scale outbound and inbound calling use cases while offering deployment flexibility across cloud, hybrid, and on-premise environments.
+
+---
+
+## Core Capabilities
+
+### Multi-Channel Voice Connectivity With IraVoice
+
+Enable communication across PSTN, SIP, WebRTC, and WhatsApp channels with unified telephony integration for voicebots and AI-driven calling workflows.
+
+### Voice AI Platform Integration
+
+Integrate seamlessly with platforms such as LiveKit, Vapi, and other voice AI frameworks, supporting proxy-mode call handling and external AI orchestration.
+
+### Proven High-Scale Performance
+
+Optimized to handle **5M+ daily calls** with efficient resource utilization, supporting up to **1000 concurrent calls on an 8-core VM**.
+
+### Dedicated Infrastructure
+
+Deploy with dedicated VMs, bandwidth allocation, DID numbers, and configurable CPS (Calls Per Second) limits tailored to deployment requirements.
+
+### Flexible Deployment Models
+
+Support for cloud, hybrid, and on-premise deployments to align with enterprise infrastructure, compliance, and operational requirements.
+
+### Fast & Accurate CPA Detection
+
+Outbound CPA (Call Progress Analysis) detection in as little as **1.75 seconds** with **95%–98% accuracy** for efficient outbound campaign automation.
+
+### Enterprise-Grade Scalability & Reliability
+
+A hyper-scalable telephony stack engineered for **99.99% uptime**, ensuring reliable communication for mission-critical voice AI applications.
+
+---
+
 
 This document serves as a comprehensive onboarding guide for customers integrating with the Epicode products. It outlines the necessary steps to configure your environment, interact with platform APIs, and deploy calling solutions while adhering to regulatory and compliance requirements.
 
 The guide is intended to ensure a smooth onboarding experience and to enable efficient implementation of both outbound and inbound communication workflows.
 
-:::info
-[**IraVoice Sandbox Environment**](/sandbox/iravoice)
+:::note
+[**Get Started With IraVoice**](/sandbox/iravoice)
 :::
 
-:::info
+:::note
 [**Get Started With BotCompose**](/sandbox/botcompose)
 :::
 
-:::info
+:::note
 [**Regulatory Compliances**](/sandbox/compliance)
+:::
+
+:::note
+[**Customer Information**](/sandbox/customerinfo)
 :::
 
 ![](/api/files/019e1658-db77-7786-817c-6bf9b6b0724f/iravoice.png)
@@ -303,7 +347,7 @@ This is necessary to validate readiness and ensure compliance alignment.
 
 In the event of a complaint, consent records may need to be shared with the SIP trunk provider or relevant authorities.
 
-:::info
+:::danger
 ### Key Information
 
 - **Response Time**: 2 working days from receiving the audit notice
@@ -325,7 +369,9 @@ When Epicode notifies you of a call audit, follow these steps:
 3. Submit the proof within 2 working  days: Ensure all required information is included (see “Consent Evidence Requirements” below).
 4. Remove the recipient from your calling list: Prevent repeat complaints by ensuring the number is not called again.
 
-**Important: Using a different Epicode number to contact the same recipient may be treated as a compliance violation and could disrupt your service.**
+:::danger
+**Important**: Using a different Epicode number to contact the same recipient may be treated as a compliance violation and could disrupt your service.
+:::
 
 ### Consent Evidence Requirements
 
@@ -402,15 +448,15 @@ Note: Epicode reserves the right to block traffic, disable numbers, or suspend s
 URL: /epicode-docs/sandbox/botcompose
 
 
-# Get Started with BotCompose
+# BotCompose Sandbox
 
 BotCompose is a VoiceBot orchestration engine designed to integrate seamlessly with existing PBX, UC, and Contact Center platforms. It replaces rigid IVR flows with natural conversational AI while staying flexible, performant, and vendor-agnostic across STT, TTS, and LLM components..
 
-:::info
+:::note
 **Base URL:** https://sandboxwa.epicode.in/api/
 :::
 
-:::info
+:::note
 [Click here](/botcomposeapi) for **Botcompose API documentation**.
 :::
 
@@ -421,16 +467,23 @@ To begin using botcompose from our sandbox environment, you will be provided wit
 
 These credentials should be used exclusively for testing purposes.
 
-## Steps to create a voice bot using BotCompose:
+## Steps to create a voice bot using BotCompose
 
-1. **Add Provider Secrets \[/add_secret\]:** Add the STT, TTS, and LLM credentials of the model providers you have procured. 
-2. **Create the Voicebot \[/add_bot\]:** Configure and create your voicebot using the required parameters. 
+<Stepper>
+1. [**Add Provider Secrets**](/botcomposeapi/add-secret): Add the STT, TTS, and LLM credentials of the model providers you have procured. 
+2. [**Create the Voicebot**](/botcomposeapi/add-bot): Configure and create your voicebot using the required parameters. 
+
+</Stepper>
 
 
+:::tip
+### BotCompose Sample Script
 
-The  API documentation contains the API requests for a sample voicebot; you can retain or modify these according to your use case.
+You can also refer to [BotCompose Sample Script](/botcompose/botcomposescript) for testing purposes.
+:::
 
-## Testing the Voicebot:
+
+## Testing the Voicebot
 
 Once your voicebot is created and configured, you can validate its performance using an **IraVoice outbound call**.  
 The outbound call will directly connect to the voicebot you’ve built, allowing end-to-end functional testing.
@@ -463,7 +516,7 @@ curl --location 'https://sandboxld.epicode.in/api/makecall' \\
     }  
 }'
 ```
-:::info
+:::note
 [Click here](/api) for **IraVoice API documentation**.
 :::
 
@@ -475,12 +528,6 @@ curl --location 'https://sandboxld.epicode.in/api/makecall' \\
   - Set "**streaming_useraudio**": **false** if you are using **Non-streaming STT**.
 - Should you require access to CDR transcripts from BotCompose, Call Recordings, or the Live Call Monitor, please let us know.
 
-
-:::info
-### BotCompose Sample Script
-
-You can refer to [BotCompose Sample Script](/botcompose/botcomposescript) for testing purposes.
-:::
 
 :::tip
 ### Frequently Asked questions
@@ -524,7 +571,7 @@ IraVoice streams customer audio to your AI orchestration and expects bot audio t
 
 Immediately after connection establishment, IraVoice sends a JSON payload containing call metadata:
 
-```json
+```json 
 {
     "call_uuid": "8288ef17-3ab9-4745-b6b5-699dcdf4d7cf",
     "tenant_id": "acme",
@@ -628,7 +675,7 @@ You do not have to control the rate of streaming; simply send audio as it is gen
 | Direction     | AI Orchestration → IraVoice                                       |
 | Sampling rate | Must match the rate configured in `call_params.tts_sampling_rate` |
 
-:::info
+:::warning
 ### Important
 
 * If your TTS output is at a different sampling rate than the call sampling rate, you must configure the `call_params.tts_sampling_rate` to match your TTS output rate.
@@ -729,7 +776,7 @@ This:
 | New question / intent change      | Stop audio   | `clear_play`  |
 
 
-:::info
+:::note
 ### Notes
 
 * Once `pause_play` is called, any new audio chunks received from your AI Orchestration will be buffered until the 20s buffer limit is reached.
@@ -944,7 +991,7 @@ If `event_url` is present in the `call_params` of the `makecall` or `makecalldir
 * Additional event-specific fields may be included depending on the event type.
 
 
-:::info
+:::note
 ### Notes
 
 * `event_url` must be reachable publicly by IraVoice.

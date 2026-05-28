@@ -10,5 +10,8 @@
 - [/sandbox/compliance](/epicode-docs/sandbox/compliance.md)
 - [/sandbox/botcompose](/epicode-docs/sandbox/botcompose.md)
 - [/iravoice/websocketmessage](/epicode-docs/iravoice/websocketmessage.md)
+- [/iravoice/webmonitor](/epicode-docs/iravoice/webmonitor.md)
 - [/iravoice/webhookevent](/epicode-docs/iravoice/webhookevent.md)
+- [/iravoice/calllatency](/epicode-docs/iravoice/calllatency.md)
+- [/botcompose/botlatency](/epicode-docs/botcompose/botlatency.md)
 - [/botcompose/botcomposescript](/epicode-docs/botcompose/botcomposescript.md)

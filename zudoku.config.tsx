@@ -173,6 +173,7 @@ Sales
             "/iravoice/campaignmanager",
             "/iravoice/calllatency",
             "/iravoice/webmonitor",
+            "/iravoice/livekitintegration"
           ],
         },
         {

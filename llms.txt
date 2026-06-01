@@ -12,6 +12,7 @@
 - [/iravoice/websocket-message-model](/epicode-docs/iravoice/websocket-message-model.md)
 - [/iravoice/webhook-event](/epicode-docs/iravoice/webhook-event.md)
 - [/iravoice/web-monitor](/epicode-docs/iravoice/web-monitor.md)
+- [/iravoice/vapi-integration](/epicode-docs/iravoice/vapi-integration.md)
 - [/iravoice/livekit-integration](/epicode-docs/iravoice/livekit-integration.md)
 - [/iravoice/campaign-manager](/epicode-docs/iravoice/campaign-manager.md)
 - [/iravoice/call-latency](/epicode-docs/iravoice/call-latency.md)

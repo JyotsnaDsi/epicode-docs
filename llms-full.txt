@@ -2159,7 +2159,7 @@ Before creating a voicebot, you must obtain credentials from the AI providers yo
     * Tool configurations are managed dynamically by external systems
 
     :::note
-    For detailed information on tool definitions, supported payload formats, execution flow, and examples, refer to the [**Tool Calling API**](/botcomposeapi/tool-calling).
+    For detailed information on tool definitions, refer to the [**Tool Calling API**](/botcomposeapi/tool-calling).
     :::
 
 5. ## Configure TTS Response Cache
@@ -2197,7 +2197,7 @@ Before creating a voicebot, you must obtain credentials from the AI providers yo
    When a cached response is available, BotCompose can serve the pre-generated audio directly, reducing TTS generation overhead and improving response times.
 
     :::note
-    For detailed information on payload formats, supported configuration options, and examples, refer to the [**Populate TTS Cache API**](/botcomposeapi/populate-tts-cache).
+    For detailed information, refer to the [**Populate TTS Cache API**](/botcomposeapi/populate-tts-cache).
     :::
 
 </Stepper>

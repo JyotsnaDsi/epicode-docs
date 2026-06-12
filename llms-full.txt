@@ -565,6 +565,161 @@ For common doubts and queries with BotCompose please refer to [BotCompose FAQ's]
 
 ---
 
+## Document: /iravoice/whatsapp-calling
+
+URL: /epicode-docs/iravoice/whatsapp-calling
+
+
+# WhatsApp Business Calling API Integration
+
+## Introduction
+
+The WhatsApp Business Calling API enables businesses to initiate and receive voice calls with WhatsApp users using Voice over VoIP. 
+Unlike traditional Cloud API messaging workflows that rely on Graph API endpoints and webhooks, 
+WhatsApp Calling supports SIP (Session Initiation Protocol) as the signaling protocol for voice communication.
+
+---
+
+## Setup
+
+### Prerequisites and Account Setup
+
+Before configuring WhatsApp Calling, ensure the following prerequisites are met:
+
+### Account Requirements
+
+<Stepper>
+    1. **Create a verified WhatsApp Business Account (WABA) in Meta Business Manager.**
+    2. **Register a phone number for calling.**
+        
+        The business number must be connected to the WhatsApp Cloud API (not the WhatsApp Business App).
+
+        :::note
+        **Reference:**
+        https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers
+        :::
+
+    3. **Obtain a Permanent Access Token or System User Access Token for API authentication.**
+
+        :::note
+        **Reference:**
+        https://developers.facebook.com/docs/whatsapp/business-management-api/get-started/#system-user-access-tokens
+        :::
+
+    4. **Enable Calling on the business phone number.**
+
+        :::note
+        **Reference:**
+        https://developers.facebook.com/docs/whatsapp/cloud-api/calling/call-settings
+        :::
+
+</Stepper>
+
+### Application Requirements
+
+Before configuring SIP signaling:
+
+* Ensure all WhatsApp Calling prerequisites are satisfied.
+* Verify that the application has messaging permissions for the target business phone number.
+* Validate messaging functionality by sending and receiving messages through the Graph API.
+* Use the same application for SIP configuration.
+* Verify the phone number status using the Health Status API.
+* Ensure the application mode is set to **Live** (not Development).
+
+---
+
+## User-Initiated Calls
+
+User-initiated calls are calls placed by a WhatsApp user to your business.
+
+### Configuration Steps
+
+
+Enable and configure SIP on the business phone number.
+
+:::note
+**Reference:**
+https://developers.facebook.com/docs/whatsapp/cloud-api/calling/sip#configure-update-sip-settings-on-business-phone-number
+:::
+
+:::note
+### Important Notes
+
+* Generate a Bearer Token using the Permanent Access Token method.
+* Assign a hostname to the FreeSWITCH server and install a valid SSL certificate.
+* TLS support must be enabled in FreeSWITCH.
+* All fields in the API request are mandatory.
+:::
+
+### Example API Request
+
+```bash
+curl 'https://graph.facebook.com/v23.0/<Unique-ID-of-the-Registered-Number>/settings' \
+-H 'Authorization: Bearer <ACCESS_TOKEN>' \
+-H "Content-Type: application/json" \
+-d '{
+  "messaging_product":"whatsapp",
+  "calling":{
+    "status":"ENABLED",
+    "call_icon_visibility":"DEFAULT",
+    "callback_permission_status":"ENABLED",
+    "srtp_key_exchange_protocol":"SDES",
+    "sip":{
+      "status":"ENABLED",
+      "servers":[
+        {
+          "hostname":"wacall.epicode.in",
+          "port":5061
+        }
+      ]
+    }
+  }
+}'
+```
+
+### Reconfiguration
+
+To route incoming calls to a different Botstream/FreeSWITCH server:
+
+1. Update the `hostname`.
+2. Update the `port` if required.
+3. Re-run the API request.
+
+---
+
+## Business-Initiated Calls
+
+Business-initiated calls are calls placed by your business to a WhatsApp user.
+
+### Requirements
+
+* The user must have granted calling permission to the business.
+* The account owner must retrieve the Meta-generated SIP password.
+
+To enable Outbound WhatsApp Calls via IraVoice, Epicode team will configure the SIP password on the SIP server to respond to Meta's digest authentication challenges.
+
+---
+
+:::note
+
+## References
+
+- WhatsApp Cloud Calling API
+
+https://developers.facebook.com/docs/whatsapp/cloud-api/calling/
+
+- Calling Settings
+
+https://developers.facebook.com/docs/whatsapp/cloud-api/calling/call-settings
+
+- SIP Configuration
+
+https://developers.facebook.com/docs/whatsapp/cloud-api/calling/sip
+:::
+
+
+---
+
 ## Document: /iravoice/websocket-message-model
 
 URL: /epicode-docs/iravoice/websocket-message-model
@@ -1337,6 +1492,102 @@ Example Response:
 
 ---
 
+## Document: /iravoice/overview
+
+URL: /epicode-docs/iravoice/overview
+
+
+# Outbound Campaign Capacity and Dialing Overview
+
+## 1. Key Definitions
+
+### Calls Per Second (CPS)
+
+The rate at which outbound calls are initiated. CPS represents the maximum number of call attempts that can be started per second.
+
+### Channels
+
+The total number of concurrent call sessions that can exist at any given time, including both dialing and connected calls.
+
+### Call Volume
+
+The total number of calls planned for a campaign over a defined period (daily, weekly, or monthly).
+
+:::note
+### Important Notes
+
+* CPS is dependent on the available channel capacity.
+* The number of channels is always greater than the CPS value.
+* Channels determine the maximum number of parallel calls that can be handled.
+:::
+
+**Example**
+
+A telecom provider may allocate **35 CPS with 1,000 channels**. This means:
+
+* Up to **35 new calls** can be initiated every second.
+* A maximum of **1,000 concurrent call sessions** can exist at any given time.
+
+---
+
+## 2. Dialing Behavior in IraVoice
+
+IraVoice initiates outbound calls at the configured CPS rate (for example, **35 CPS**).
+
+As calls are placed, channels are gradually occupied. With 1,000 available channels and a dialing rate of 35 CPS, channel capacity is typically reached within approximately **30 seconds**.
+
+### When Channel Capacity Is Reached
+
+* New call attempts are placed in a queue.
+* Additional dialing resumes only when active channels become available.
+* Channel availability is determined by call completion, rejection, or disconnect events.
+
+### Typical Connect Rate
+
+:::note
+In India, approximately **35–40%** of dialed calls are answered and connected. Connected calls generally occupy channels longer than unanswered or failed call attempts.
+:::
+---
+
+## 3. Factors Affecting Campaign Throughput
+
+Actual campaign throughput depends on the following factors:
+
+| Factor                  | Description                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------ |
+| **Channels**            | Number of calls that can run concurrently.                                           |
+| **Call Duration**       | Longer calls keep channels occupied for extended periods.                            |
+| **Answer/Connect Rate** | Higher connect rates increase channel occupancy because connected calls last longer. |
+| **CPS**                 | Determines how quickly new call attempts can be initiated.                           |
+
+These factors collectively influence the total number of calls that can be processed during a campaign.
+
+---
+
+## 4. Regulatory Considerations (TRAI)
+
+According to TRAI regulations:
+
+* **140-series numbers** must be used for telemarketing and promotional calling campaigns.
+* **160-series numbers** are generally reserved for transactional and service-related communications.
+
+:::note
+[click here](/sandbox/compliance) for more information on TRAI Regulations.
+:::
+### Impact on Campaign Operations
+
+Regulatory requirements affect:
+
+* Number provisioning and allocation
+* Campaign configuration (including permitted calling hours)
+* Compliance and governance for outbound dialing activities
+
+Organizations should ensure that the appropriate numbering series is used based on the nature of the communication to remain compliant with TRAI guidelines.
+
+
+
+---
+
 ## Document: /iravoice/livekit-integration
 
 URL: /epicode-docs/iravoice/livekit-integration
@@ -1853,6 +2104,35 @@ This event contains detailed stream-level latency metrics within the `setup_dela
 ```
 
 Unlike the dashboard, which shows averaged metrics across calls, the `stream_stopped` event provides per-call visibility, making it useful for debugging specific latency issues.
+
+
+
+---
+
+## Document: /iravoice/call-dispositions
+
+URL: /epicode-docs/iravoice/call-dispositions
+
+
+# SIP Response Codes and Call Disposition Reference Guide
+
+## Introduction
+
+The following table lists common SIP response codes, call dispositions, and Q.850 cause codes used in telephony systems. 
+Use this reference to quickly understand call outcomes and troubleshoot call failures.
+
+
+| Status Code | Disposition           | Cause                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------- | --------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0           | UNSPECIFIED           | Unspecified. No other cause codes applicable.      | This is usually given by the router when none of the other codes apply. This cause usually occurs in the same type of situations as cause 1, cause 88, and cause 100.                                                                                                                                                                                                                                                                                         |
+| 403         | Forbidden             | Outgoing calls barred                              | This cause indicates that although the calling party is a member of the CUG for the outgoing CUG call, outgoing calls are not allowed for this member of the CUG.                                                                                                                                                                                                                                                                                             |
+| 404         | Not Found             | Unallocated (unassigned) number [Q.850 value 1]    | This cause indicates that the called party cannot be reached because, although the called party number is in a valid format, it is not currently allocated (assigned).                                                                                                                                                                                                                                                                                        |
+| 484         | Address Incomplete    | Invalid number format (address incomplete) [Q.850] | This cause indicates that the called party cannot be reached because the called party number is not in a valid format or is not complete.                                                                                                                                                                                                                                                                                                                     |
+| 486         | Busy Here             | User busy [Q.850]                                  | This cause is used to indicate that the called party is unable to accept another call because the user busy condition has been encountered. This cause value may be generated by the called user or by the network. In the case of user-determined user busy, it is noted that the user equipment is compatible with the call.                                                                                                                                |
+| 487         | Request Terminated    | Caller disconnected before answer                  | This indicates that the person who made the incoming call dropped it before the call was answered.                                                                                                                                                                                                                                                                                                                                                            |
+| 500         | Server Internal Error | Temporary failure                                  | This cause indicates that the network is not functioning correctly and that the condition is not likely to last a long period of time; e.g., the user may wish to try another call attempt almost immediately.                                                                                                                                                                                                                                                |
+| 502         | Bad Gateway           | Destination out of order                           | This cause indicates that the destination indicated by the user cannot be reached because the interface to the destination is not functioning correctly. The term "not functioning correctly" indicates that a signal message was unable to be delivered to the remote party; e.g., a physical layer or data link layer failure at the remote party, or user equipment offline.                                                                               |
+| 603         | Decline               | Call rejected [Q.850]                              | This cause indicates that the equipment sending this cause does not wish to accept this call, although it could have accepted the call because the equipment sending this cause is neither busy nor incompatible. The network may also generate this cause, indicating that the call was cleared due to a supplementary service constraint. The diagnostic field may contain additional information about the supplementary service and reason for rejection. |
 
 
 

@@ -19,7 +19,7 @@ Please provide the following details for the authorized signatory. This informat
 6\. Company Address 
 
 :::note
-Fill the following form to proceed : [**==Authorized Signatory Details==**](https://iravoice.epicode.in/signup/)
+Fill the following form to proceed : [<span style={{"color":"#b85cfa"}}> **==Authorized Signatory Details==** </span>](https://iravoice.epicode.in/signup/)
 :::
 
 Signing the consent form is mandatory to proceed with the setup, as it helps ensure customer integrity.Please find the sample consent form details at the link below. 

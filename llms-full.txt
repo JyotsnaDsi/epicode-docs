@@ -124,31 +124,31 @@ Designed with an API-first architecture, Epicode supports high-scale outbound an
 
 ## Core Capabilities
 
-### Multi-Channel Voice Connectivity With IraVoice
+### <span style={{"color":"#b85cfa"}}> 1. Multi-Channel Voice Connectivity With IraVoice </span>
 
 Enable communication across PSTN, SIP, WebRTC, and WhatsApp channels with unified telephony integration for voicebots and AI-driven calling workflows.
 
-### Voice AI Platform Integration
+### <span style={{"color":"#b85cfa"}}> 2. Voice AI Platform Integration  </span>
 
 Integrate seamlessly with platforms such as LiveKit, Vapi, and other voice AI frameworks, supporting proxy-mode call handling and external AI orchestration.
 
-### Proven High-Scale Performance
+### <span style={{"color":"#b85cfa"}}> 3. Proven High-Scale Performance </span>
 
 Optimized to handle **5M+ daily calls** with efficient resource utilization, supporting up to **1000 concurrent calls on an 8-core VM**.
 
-### Dedicated Infrastructure
+### <span style={{"color":"#b85cfa"}}> 4. Dedicated Infrastructure </span>
 
 Deploy with dedicated VMs, bandwidth allocation, DID numbers, and configurable CPS (Calls Per Second) limits tailored to deployment requirements.
 
-### Flexible Deployment Models
+### <span style={{"color":"#b85cfa"}}> 5. Flexible Deployment Models </span>
 
 Support for cloud, hybrid, and on-premise deployments to align with enterprise infrastructure, compliance, and operational requirements.
 
-### Fast & Accurate CPA Detection
+### <span style={{"color":"#b85cfa"}}> 6. Fast & Accurate CPA Detection </span>
 
 Outbound CPA (Call Progress Analysis) detection in as little as **1.75 seconds** with **95%–98% accuracy** for efficient outbound campaign automation.
 
-### Enterprise-Grade Scalability & Reliability
+### <span style={{"color":"#b85cfa"}}> 7. Enterprise-Grade Scalability & Reliability </span>
 
 A hyper-scalable telephony stack engineered for **99.99% uptime**, ensuring reliable communication for mission-critical voice AI applications.
 
@@ -208,7 +208,7 @@ Please provide the following details for the authorized signatory. This informat
 6\. Company Address 
 
 :::note
-Fill the following form to proceed : [**==Authorized Signatory Details==**](https://iravoice.epicode.in/signup/)
+Fill the following form to proceed : [<span style={{"color":"#b85cfa"}}> **==Authorized Signatory Details==** </span>](https://iravoice.epicode.in/signup/)
 :::
 
 Signing the consent form is mandatory to proceed with the setup, as it helps ensure customer integrity.Please find the sample consent form details at the link below. 
@@ -293,7 +293,7 @@ All commercial communications in India are governed by the Telecom Regulatory Au
 
 ###  DND
 
-- **DND (Do Not Disturb)** = Customers who have opted out of promotional communication
+- <span style={{"color":"#e62525"}}> **DND (Do Not Disturb)** </span> = Customers who have opted out of promotional communication
 
 ### Types of Communication
 
@@ -308,8 +308,8 @@ All commercial communications in India are governed by the Telecom Regulatory Au
 
 As per applicable regulations issued by the Telecom Regulatory Authority of India (TRAI), all businesses engaging in outbound calling must adhere to the following guidelines to ensure compliance:
 
-- **140-series numbers** must be used for all **telemarketing** or **promotional calls**.
-- **160-series numbers** are designated for **transactional** or **service-related communications**. 
+- <span style={{"color":"#3498DB"}}> **140-series numbers** </span> must be used for all **telemarketing** or **promotional calls**.
+- <span style={{"color":"#3c9934"}}> **160-series numbers** </span> are designated for **transactional** or **service-related communications**. 
 
 The use of regular phone numbers for such activities is not permitted and may result in regulatory non-compliance.
 
@@ -1501,15 +1501,15 @@ URL: /epicode-docs/iravoice/overview
 
 ## 1. Key Definitions
 
-### Calls Per Second (CPS)
+### <span style={{"color":"#b85cfa"}}> Calls Per Second (CPS) </span>
 
 The rate at which outbound calls are initiated. CPS represents the maximum number of call attempts that can be started per second.
 
-### Channels
+### <span style={{"color":"#b85cfa"}}> Channels </span>
 
 The total number of concurrent call sessions that can exist at any given time, including both dialing and connected calls.
 
-### Call Volume
+### <span style={{"color":"#b85cfa"}}> Call Volume </span>
 
 The total number of calls planned for a campaign over a defined period (daily, weekly, or monthly).
 

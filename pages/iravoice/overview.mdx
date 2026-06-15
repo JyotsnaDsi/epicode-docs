@@ -2,15 +2,15 @@
 
 ## 1. Key Definitions
 
-### Calls Per Second (CPS)
+### <span style={{"color":"#b85cfa"}}> Calls Per Second (CPS) </span>
 
 The rate at which outbound calls are initiated. CPS represents the maximum number of call attempts that can be started per second.
 
-### Channels
+### <span style={{"color":"#b85cfa"}}> Channels </span>
 
 The total number of concurrent call sessions that can exist at any given time, including both dialing and connected calls.
 
-### Call Volume
+### <span style={{"color":"#b85cfa"}}> Call Volume </span>
 
 The total number of calls planned for a campaign over a defined period (daily, weekly, or monthly).
 

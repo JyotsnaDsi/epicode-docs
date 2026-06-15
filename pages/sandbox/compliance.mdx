@@ -6,7 +6,7 @@ All commercial communications in India are governed by the Telecom Regulatory Au
 
 ###  DND
 
-- **DND (Do Not Disturb)** = Customers who have opted out of promotional communication
+- <span style={{"color":"#e62525"}}> **DND (Do Not Disturb)** </span> = Customers who have opted out of promotional communication
 
 ### Types of Communication
 
@@ -21,8 +21,8 @@ All commercial communications in India are governed by the Telecom Regulatory Au
 
 As per applicable regulations issued by the Telecom Regulatory Authority of India (TRAI), all businesses engaging in outbound calling must adhere to the following guidelines to ensure compliance:
 
-- **140-series numbers** must be used for all **telemarketing** or **promotional calls**.
-- **160-series numbers** are designated for **transactional** or **service-related communications**. 
+- <span style={{"color":"#3498DB"}}> **140-series numbers** </span> must be used for all **telemarketing** or **promotional calls**.
+- <span style={{"color":"#3c9934"}}> **160-series numbers** </span> are designated for **transactional** or **service-related communications**. 
 
 The use of regular phone numbers for such activities is not permitted and may result in regulatory non-compliance.
 

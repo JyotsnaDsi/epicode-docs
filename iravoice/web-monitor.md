@@ -84,7 +84,7 @@ When errors occur on the websocket server, this column displays the count of cal
 
 ### Types of Web Errors
 
-![](/epicode-docs/weberr.png)
+![](/docs/weberr.png)
 
 Hover over the Web Errors column to view the error breakdown.
 

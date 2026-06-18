@@ -55,8 +55,10 @@ The following SIP credentials will be provided by the **Epicode team** and must 
 
 Create an outbound SIP trunk in LiveKit using the SIP credentials provided by Epicode.
 
+:::note
 **Reference:**
 https://docs.livekit.io/telephony/making-calls/outbound-trunk/
+:::
 
 #### Example
 

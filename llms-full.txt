@@ -1276,7 +1276,7 @@ When errors occur on the websocket server, this column displays the count of cal
 
 ### Types of Web Errors
 
-![](/epicode-docs/weberr.png)
+![](/docs/weberr.png)
 
 Hover over the Web Errors column to view the error breakdown.
 
@@ -1650,8 +1650,10 @@ The following SIP credentials will be provided by the **Epicode team** and must 
 
 Create an outbound SIP trunk in LiveKit using the SIP credentials provided by Epicode.
 
+:::note
 **Reference:**
 https://docs.livekit.io/telephony/making-calls/outbound-trunk/
+:::
 
 #### Example
 

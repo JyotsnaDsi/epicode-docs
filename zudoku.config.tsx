@@ -1,7 +1,7 @@
 import type { ZudokuConfig } from "zudoku";
 
 const config: ZudokuConfig = {
-  basePath: "/docs",
+  basePath: "/epicode-docs",
   "metadata": {
     "title": "Epicode Docs",
     "description": "Dumentation for the Epicode Product Suite.",
@@ -110,8 +110,8 @@ const config: ZudokuConfig = {
       ],
       logo: {
         src: {
-          light: "/docs/epicode-logo-web.png",
-          dark: "/docs/epicode-logo-white.webp"
+          light: "/epicode-docs/epicode-logo-web.png",
+          dark: "/epicode-docs/epicode-logo-white.webp"
         },
         alt: "Company Logo",
         width: "120px" // optional width
